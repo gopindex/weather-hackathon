@@ -1,0 +1,22 @@
+[
+    {
+        "EmailID": "asmasim@gmail.com",
+        "Name": "Asma SImreen",
+        "Todo": [
+            {
+                "ID": "2fed2772-493f-4d5f-8500-be6bee3e43dd",
+                "Task": "Nisha is Sleepy Today"
+            }
+        ]
+    },
+    {
+        "EmailID": "asmasimreen@gmail.com",
+        "Name": "Asma Simreen",
+        "Todo": [
+            {
+                "ID": "44834400-7b4d-4c6a-a6f1-47f41367d969",
+                "Task": "Task is toAdd"
+            }
+        ]
+    }
+]

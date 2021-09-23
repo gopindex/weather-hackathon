@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Number Game</title>
+
+
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="js/game.js">
+
+    </script>
+</head>
+
+<body>
+
+    <div class="intro">
+        <div style="color: aliceblue;">
+            Take the form input
+
+            <label for="fname">Enter The Player Name:</label><br>
+            <input type="text" id="fname" name="fname" /><br>
+            <input type="submit" value="Submit" id="submit" />
+
+        </div>
+
+        <div style="color: aliceblue;">
+            Display Game Instructions
+            <p>
+                ********Game Rules*********
+            </p>
+            <p>
+                Welcome to the Grid game where you need to find the one hidden jackpot.
+            </p>
+            <p>
+                Be careful as there are bombs hidden in the grid, which will end the game as soon as you touch them.
+            </p>
+            <p>
+                There are three levels, and the number of bombs increase with each levels.
+            </p>
+            <p>
+                You must avoid all the bombs and find the jackpot to win the game! Good luck!
+            </p>
+        </div>
+    </div>
+
+    <center class="score">
+        <h1>Welcome <span id="user"></span></h1>
+        <h2>Score : <span id="score"> 0</span> </h2>
+
+    </center>
+
+    <div class="modal-container-won" id="modal-container-won">
+        <div class="modelWon">
+            <div class="closeW">+</div>
+            <h1>WINNER</h1>
+            <p>Hurray!! You Won The Game</p>
+
+        </div>
+    </div>
+
+    <div class="modal-container-lost" id="modal-container-lost">
+        <div class="modelLost">
+            <div class="closeL">+</div>
+            <h1>LOSER</h1>
+            <p>Sorry You Lost The Game! Try again </p>
+        </div>
+    </div>
+
+    <div class="leaderboard" id="leaderboard">
+        <div class="leaders" id="leaders">
+            <div class="closeBoard">+</div>
+            <h1>WINNERS</h1>
+            <p id="content"></p>
+
+        </div>
+    </div>
+
+    <table id="myTable">
+
+    </table>
+    <button id="easyGame" type="submit" class="btn" onclick="easyGame()">Easy</button>
+    <button id="mediumGame" type="submit" class="btn" onclick="mediumGame()">Medium</button>
+    <button id="hardGame" type="submit" class="btn" onclick="hardGame()">Hard</button>
+    <button type="submit" class="btn" onclick="leaderboard()">leaderboard</button>
+
+    <audio id="sound">
+        <source src="assets/sounds/music.mp3">
+    </audio>
+    <audio id="samespot">
+        <source src="assets/sounds/horn.mp3">
+    </audio>
+    <audio id="soundWinner">
+        <source src="assets/sounds/winnerSond.mp3">
+    </audio>
+
+    <audio id="soundLost">
+        <source src="assets/sounds/lostMusic.wav">
+    </audio>
+
+
+</body>
+
+<script>
+    let submit = document.getElementById('submit');
+    submit.addEventListener('click', function () {
+        document.querySelector('.intro').style.display = 'none';
+        document.querySelector('.score').style.display = 'block';
+        let user = document.getElementById("fname").value;
+        let startingScore = document.getElementById('score').innerText;
+        document.getElementById('user').innerText = user;
+    });
+</script>
+
+</html>

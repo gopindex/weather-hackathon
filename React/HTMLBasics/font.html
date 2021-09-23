@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: unsteady_oversteer;
+            src: url(unsteady_oversteer.ttf);
+        }
+
+        p {
+            font-family: unsteady_oversteer;
+            border-style: solid ;
+            border-width: 2px;
+            width: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="inputtext"> enter input</label>
+    <input type="text" name="inputtextvalue" id="inputtextval" ></input>
+    <input type="submit" value="submit" onclick="abc()"></input>
+    <input type="submit" value="clear" onclick="clear1()"></input>
+
+    <p id="capitalize"> </p>
+    <div id="textedit"></div>
+    <script>
+        function abc(){
+            let inputtext1 = document.getElementById("inputtextval");
+            //console.log(inputtext1.value);
+            let ptag = document.getElementById("capitalize");
+            var data = inputtext1.value;
+            let ptaghidden = document.getElementById("capitalize").style.display;
+            let para = document.getElementById('textedit');
+            //var para = document.createElement('div');
+            //para.id = 'div1';
+            //document.body.appendChild(para);
+            if(data==""){
+                para.innerText = "please enter text";
+                ptaghidden = "none";
+                document.getElementById("capitalize").style.borderWidth="0px";
+            }else{
+                //document.body.removeChild(para);
+                para.innerText = "";
+                ptaghidden = "block";
+                document.getElementById("capitalize").style.borderWidth="2px";
+
+            }
+            ptag.innerText = data.toUpperCase();
+            //let inputtext1 = document.getElementById("inputtextval");
+        }
+        function clear1(){
+            let inputtext1 = document.getElementById("inputtextval");
+            let data = inputtext1.value;
+                inputtext1.value='';
+        }
+        // var cap = document.getElementById("capitalize");
+        // var data = cap.innerText;
+        // cap.innerText = data.toUpperCase();
+    </script>
+</body>
+
+</html>

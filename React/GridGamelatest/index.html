@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Number Game</title>
+
+
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="js/game.js">
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <h2>Score : </h2>
+        <h2 id="score"></h2>
+
+    </center>
+
+    <div class="modal-container-won" id="modal-container-won">
+        <div class="modelWon">
+            <div class="closeW">+</div>
+            <h1>WINNER</h1>
+            <p>Hurray!! You Won The Game</p>
+        </div>
+    </div>
+
+    <div class="modal-container-lost" id="modal-container-lost">
+        <div class="modelLost">
+            <div class="closeL">+</div>
+            <h1>LOSER</h1>
+            <p>Sorry You Lost The Game! Try again </p>
+        </div>
+    </div>
+
+    <div>
+        <div id="inputform" style="color: aliceblue;">
+            <!-- Take the form input -->
+            <form action="" method="get" >
+                <label for="fname">Enter The Player Name:</label><br>
+                <input type="text" id="fname" name="fname" /><br>
+
+                <input type="button" value="Submit" onclick= "gamestart();"/>
+            </form>
+        </div>
+        <div id="instructions" style="color: aliceblue;">
+            <!-- Display Game Instructions -->
+            <p>Welcome to the Grid game where you need to find the one hidden jackpot.
+                Be careful as there are bombs hidden in the grid, which will end the game as soon as you touch them.  
+            </p>
+            <p>There are three levels, and the number of bombs increase with each levels.
+                You must avoid all the bombs and find the jackpot to win the game! Good luck!
+            </p>
+        </div>
+    </div>
+
+    <table id="myTable" style="display:none">
+
+    </table>
+
+    <audio id="sound">
+        <source src="assets/audios/music.mp3">
+    </audio>
+
+    <audio id="soundLost">
+        <source src="assets/audios/lostMusic.wav">
+    </audio>
+
+</body>
+
+
+</html>

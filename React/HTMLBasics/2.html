@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div style="width:900px;height:552px;background-color: rgb(117, 93, 62);">
+        <div style="width:351px;height:552px;background-color:bisque;">
+            <div style="width:351px;height:217px;background-color:azure;">
+                <div style="width:134px;height:217px;background-color:rgb(33, 172, 172);">
+                    <div style="width:134px;height:83px;background-color:rgb(33, 172, 79);">
+                        <div style="width:51px;height:83px;background-color:rgb(59, 33, 172);">
+                            <div style="width:51px;height:31px;background-color:rgb(172, 33, 52);">
+                                <div style="width:19px;height:31px;background-color:rgb(163, 172, 33);">
+                                    <div style="width:19px;height:12px;background-color:rgb(184, 128, 111);">
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  -->
+</body>
+<!-- <script>
+    let div1 = document.createElement('div');
+    div1.style.backgroundColor='brown';
+    divi.style.width='900px';
+    div1.style.height='555px';
+    document.body.appendChild(div1);
+</script> -->
+<script>
+    let width = 900;
+    let div = document.createElement("div");
+    div.id = -1;
+    div.style.width = width+"px";
+    div.style.height = Math.floor(width/1.6)+"px";
+    let randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+    div.style.backgroundColor = randomColor;
+    document.body.appendChild(div);
+    let div1 = document.createElement("div");
+    div1.id = 0;
+    div1.style.width = Math.floor(562)+"px";
+    div1.style.height = "562px";
+    randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+    div1.style.backgroundColor = randomColor;
+    div.appendChild(div1);
+    let divarray = [];
+    let height=562;//Math.floor(width/1.6);
+    for(let i = 0;i<width;i++){
+        height = Math.floor(width/1.6);
+        divarray[i] = document.getElementById(i);
+        let divChild = document.createElement("div");
+        console.log(width,height);
+        divChild.id = i+1;
+        if(i%3==0&& i!=0){
+            // height = Math.floor(width);
+            // width = Math.floor(width/1.6);
+            //height = height.split("px");
+            //width = height;
+            //console.log(height);
+        }
+        if(i%2==0){
+            width = Math.floor(height);
+            height = Math.floor(height/1.6);
+        }
+        else if(i%2==1){
+            height = width;
+            width = Math.floor(width/1.6);
+        }
+        divChild.style.backgroundColor = randomColor;
+        divChild.style.width = width+"px";
+        divChild.style.height = height+"px";
+        randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+        divChild.style.backgroundColor = randomColor;
+        divarray[i].appendChild(divChild);
+        width = height;
+    }
+</script>
+
+</html>

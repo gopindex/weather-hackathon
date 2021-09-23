@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .oval {
+            height: 50px;
+            width: 100px;
+            background-color: #555;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="oval" class="oval"></div>
+</body>
+<script>
+    let oval = document.getElementById("oval");
+    let height = oval.offsetHeight;;
+    //height = height.splice(height.length-1,2);
+    // do{
+    //     setTimeout(() => {
+    //     document.getElementById("oval").style.height = (height + 2)+"px";
+    //     document.getElementById("oval").offsetWidth += 2;
+    // }, 100);
+    // }while (oval.offsetWidth < 200);
+    var myVar = setInterval(setSize, 100);
+
+    function setSize() {
+        let oval = document.getElementById("oval");
+        let height = oval.offsetHeight;
+        let width = oval.offsetWidth;
+        console.log(height);
+        oval.style.height = (height + 2) + "px";
+        oval.style.width = (width + 2) + "px";
+        height = height + 2;
+        width = width + 2;
+        if (height > 200) {
+            stopOval();
+        }
+    }
+    function stopOval() {
+        clearInterval(myVar);
+    }
+</script>
+
+</html>

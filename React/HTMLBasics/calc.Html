@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="frm1" action="*">
+        Decimal number: <input id="Dnumber" type="text" name="Dnumber" value="">
+        Binary number: <input id="Bnumber" type="text" name="Bnumber" value=""><br><br>
+        <input type="button" id="btnclick" onclick="binaryordecimal()" value="Convert">
+        <input type="button" id="refreshclick" onclick="refresh()" value="refresh">
+
+      </form>       
+</body>
+<script>
+    function binaryordecimal(){
+        let decimalNum = document.getElementById('Dnumber');
+        let binaryNum = document.getElementById('Bnumber');
+        if(binaryNum.value!==""){
+            decimalNum.value =parseInt(binaryNum.value, 2).toString(10);
+            decimalNum.style.backgroundColor = "#999";
+        }
+        else{
+            binaryNum.value =  parseInt(decimalNum.value, 10).toString(2);
+            binaryNum.style.backgroundColor = "#999";
+        }
+    }
+    function refresh(){
+        location.reload();
+    }
+</script>
+</html>

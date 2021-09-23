@@ -1,0 +1,182 @@
+<script type="text/javascript" src="game.js"></script>
+<!-- /*
+function : createtable
+type : primary
+purpose : generates a html table dynamically
+*/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+     background-image: url("image.png");
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+ }
+ /* @media screen and (max-width: 600px) { */
+ table {
+     background: rgba(109, 108, 108, 0);
+     margin: 2em auto;
+     width: 500px;
+     height: 500px;
+     /* border: 0.2em solid #546E8F; */
+     border-radius: 15px;
+     /* border-color: black; */
+     /* border-collapse: collapse; */
+ }
+ /* } */
+ tr {
+     background: rgba(84, 110, 143, 0.3);
+     border-bottom: 2px solid black;
+     padding: 2em;
+     width: 20px;
+     border-radius: 15px;
+     height: 20px;
+ }
+ td {
+     border-radius: 15px;
+     padding: 1em;
+     width: 30px;
+     height: 30px;
+     border-bottom: 2px solid black;
+     font-size: 2em;
+     color: white;
+     font-size: 0;
+     /* hide text */
+     line-height: 0;
+     /* reduce line-height*/
+     letter-spacing: 0.46rem;
+ }
+        /* table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 30%;
+        }
+        img {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 25px;
+        }
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: center;
+          padding: 8px;
+          background-color: black;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        } */
+        </style>
+</head>
+<body>
+    <table id = "myTable"></table>
+</body>
+<script>
+    function multiple(Event){
+        let tabledata = cellData();
+        let value = this.id;
+        console.log(value);
+        let multiplied = [];
+        tabledata.forEach((row)=> {
+            row.forEach((ele) => {
+                if(ele%value==0){
+                    multiplied.push(ele);
+                    let td = document.getElementById(ele);
+                    td.innerText = '*';
+                    //td.style.backgroundColor='brown';
+                    let img = document.createElement("img");
+                    let audio = document.createElement("audio");
+                    let src = document.getElementById(ele);
+                    td.style.backgroundImage="url('brick')";
+                    img.src ="brick";
+                    img.style.display="none";
+                    img.style.width="75%";
+                    img.alt="click";
+                    audio.src="myaudio.mp3";
+                    audio.play();
+                    img.hidden = false;
+                    src.appendChild(img);
+                    src.appendChild(audio);
+                    //img = false;
+                    //let img = document.getElementById(ele);
+                    //img.img.hidden = false;
+                    //tabledata[i][j]="*";
+                }
+            })
+        })
+        console.log(multiplied);
+        // for(let i =0;i < 10;i++){
+        //     for(let j = 0;j<10;j++){
+        //         if(tabledata[i][j]%Number(value)==0){
+        //             //multiplied.push(tabledata[i][j]);
+        //             // let td = document.getElementById(tabledata[i][j]);
+        //             // td.innerText = '*';
+        //             // tabledata[i][j]="*";
+        //             //console.log(tabledata[i][j]);
+        //         }
+        //     }
+        // }
+        //event.stopPropagation();
+    }
+    function createtable(){
+        let tableData = cellData();
+let table = document.getElementById("myTable");
+for (i=0;i<10;i++){
+    let tr = document.createElement('tr');
+    table.appendChild(tr);
+    for(let j=0;j<10;j++){
+        let td=document.createElement("td");
+        
+        td.id= tableData[i][j];
+
+        //td.setAttribute('onclick', 'multiple(event)');
+        td.addEventListener("click",multiple);
+        td.innerText = tableData[i][j];
+        tr.appendChild(td);
+
+    }
+}
+}
+window.addEventListener('DOMContentLoaded', createtable());
+/*
+function: cellData
+Purpose :  generates celldata (2d array) with shuffled elements
+*/
+function cellData() {
+    const tableData = new Array(10);
+    for(let i = 0; i < tableData.length;i++){
+        tableData[i]= new Array(10);
+    }
+    // unsorted values for random digit generation
+    let random = [];
+    for(let i=0;i<10;i++){
+        //unsorted[i]=Math.floor(Math.random()*10);
+        var temp = Math.floor(Math.random()*10);
+        if(random.indexOf(temp) == -1){
+            random.push(temp);
+        }
+        else
+         i--;
+    }
+    //assign values from 1-100 to the 2d array
+    let a = 1;
+    for(let i =0;i<tableData.length;i++){
+        for(let j=0;j<tableData[i].length;j++){
+            tableData[random[i]][random[j]] = ++a;
+        }
+    }
+    //shuffle the row array elements
+    for(let i =0;i<tableData.length;i++){
+        tableData[random[i]].sort(()=>Math.random()-0.5);
+    }
+    return tableData;
+}
+</script>
+</html>
